@@ -1,23 +1,18 @@
 namespace DialogicLogic
 {
-    public class DialogueTree : IBranchNode, ISplittingNode
+    public class DialogueTree : ISayNode
     {
-        public ISplittingNode Ask(string message)
+        public IAskNode Ask(string message)
         {
             throw new System.NotImplementedException();
         }
 
-        public IBranchNode EndIf()
+        public IAskNode Fi()
         {
             throw new System.NotImplementedException();
         }
 
-        public IBranchNode IfReplies(string message)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IBranchNode Say(string message)
+        public ISayNode Say(string message)
         {
             throw new System.NotImplementedException();
         }

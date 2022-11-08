@@ -12,13 +12,17 @@ public class UnitTest1
             .Ask("Are you a boy or a girl")
                 .IfReplies("boy")
                     .Say("ayt cool")
+                    .Say("...")
+                    .Fi()
                 .IfReplies("girl")
                     .Ask("are you single")
-                        .IfReplies("yes").Say("nice")
-                        .IfReplies("no").Say("ayt cool")
-                    .EndIf()
-                .EndIf()
+                        .IfReplies("yes")
+                            .Say("nice")
+                            .Say("I'm also single... just saying")
+                            .Fi()
+                        .IfReplies("no")
+                            .Say("ayt cool")
+                            .Fi()
             ;
-                
     }
 }
