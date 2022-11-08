@@ -23,6 +23,6 @@ public class UnitTest1
                         .IfReplies("no")
                             .Say("ayt cool")
                             .Fi()
-            ;
+        ;
     }
 }
