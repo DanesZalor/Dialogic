@@ -1,6 +1,8 @@
+using System;
+
 namespace DialogicLogic
 {
-    public class SayNode : DialogueNode, ISayNode
+    public sealed class SayNode : DialogueNode, ISayNode
     {
         
         private IDialogueNode _next;
@@ -8,23 +10,33 @@ namespace DialogicLogic
         public override IDialogueNode Next { get => _next; }
 
 
-        public SayNode(string content, DialogueNode parent = null) : base(content, parent) {}
+        public SayNode(string content, IDialogueNode parent = null) : base(content, parent) {}
 
         public ISayNode Say(string message)
         {
             _next = new SayNode(message, this);
-            return (_next as ISayNode);
+            return _next as ISayNode;
         }
 
         public IAskNode Ask(string message)
         {
-            throw new System.NotImplementedException();
+            _next = new AskNode(message, this);
+            return _next as IAskNode;
         }
 
         public IAskNode Fi()
         {
-            throw new System.NotImplementedException();
+            try{
+                IDialogueNode curr = this.Previous;
+                while(curr != null && !(curr is IAskNode)) 
+                    curr = curr.Previous;
+                return curr as IAskNode;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
-        
+
     }
 }

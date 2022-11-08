@@ -10,7 +10,7 @@ namespace DialogicLogic
         
         public IDialogueNode Previous { get => _previousNode; }
 
-        public virtual IDialogueNode Next { get; }
+        public abstract IDialogueNode Next { get; }
 
         public IDialogueNode Root { 
             get {

@@ -2,6 +2,7 @@ namespace DialogicLogic
 {
     public interface IAskNode : IDialogueNode
     {
-        IIfRepliesNode IfReplies(string message);
+        string ChoiceKey {get; set;}
+        IIfRepliesNode IfReplies(string reply);
     }
 }
