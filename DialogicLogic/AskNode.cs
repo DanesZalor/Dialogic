@@ -21,20 +21,27 @@ namespace DialogicLogic
             set {
                 if( !_children.ContainsKey(value) )
                     throw new InvalidOperationException("ChoiceKey doesn't exist among the choices");
-                
+
                 _choiceKey = value;
             }
         }
 
-        public AskNode(string content, IDialogueNode parent = null) : base(content, parent) {
+        public AskNode(string content, IDialogueNode parent = null) 
+        : base(content, parent) 
+        {
             _children = new Dictionary<string, IDialogueNode>();
         }
 
         public override IDialogueNode Next => _children[ChoiceKey];
 
+        public IDialogueNode GetNext(string reply)
+            => _children[reply];
+
         public IIfRepliesNode IfReplies(string reply)
         {
-            return new IfRepliesNode(this, _children);           
+            _children.Add(reply, null);
+
+            return new IfRepliesNode(reply, this, _children);           
         }
     }
 }

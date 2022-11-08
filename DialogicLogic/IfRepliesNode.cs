@@ -7,25 +7,28 @@ namespace DialogicLogic
     {
         private IAskNode _parentRef;
         private Dictionary<string, IDialogueNode> _parentChoicesRef;
-        public IfRepliesNode(IAskNode parent, Dictionary<string, IDialogueNode> choices)
+        private string _replyKey;
+
+        public IfRepliesNode(string replyKey, IAskNode parent, Dictionary<string, IDialogueNode> choices)
         {
+            if(parent == null)
+                throw new ArgumentNullException("parent cannot be null");
+
+            _replyKey = replyKey;
             _parentRef = parent;
             _parentChoicesRef = choices;
         }
 
         public ISayNode Say(string message)
         {
-            if(_parentChoicesRef.ContainsKey(message))
-                throw new InvalidOperationException($"Duplicate key '{message}'");
-
-            _parentChoicesRef.Add(message, new SayNode(message, _parentRef));
-            return _parentChoicesRef[message] as ISayNode;
+            _parentChoicesRef[_replyKey] = new SayNode(message, _parentRef);
+            return _parentChoicesRef[_replyKey] as ISayNode;
         }
 
         public IAskNode Ask(string message)
         {
-            _parentChoicesRef.Add(message, new AskNode(message, _parentRef));
-            return _parentChoicesRef[message] as IAskNode;
+            _parentChoicesRef[_replyKey] = new AskNode(message, _parentRef);
+            return _parentChoicesRef[_replyKey] as IAskNode;
         }
     }
 }
