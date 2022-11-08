@@ -43,5 +43,19 @@ namespace DialogicLogic
 
             return new IfRepliesNode(reply, this, _children);           
         }
+
+        public IAskNode Fi()
+        {
+            try{
+                IDialogueNode curr = this.Previous;
+                while(curr != null && !(curr is IAskNode)) 
+                    curr = curr.Previous;
+                return curr as IAskNode;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

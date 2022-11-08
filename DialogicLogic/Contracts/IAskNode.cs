@@ -1,6 +1,6 @@
 namespace DialogicLogic
 {
-    public interface IAskNode : IDialogueNode
+    public interface IAskNode : IDialogueNode, IFiAble
     {
         string ChoiceKey {get; set;}
 

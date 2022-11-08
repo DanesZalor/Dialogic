@@ -1,13 +1,9 @@
 namespace DialogicLogic
 {
-    public interface ISayNode : IDialogueNode
+    public interface ISayNode : IDialogueNode, IFiAble
     {
         ISayNode Say(string message);
 
         IAskNode Ask(string message);
-
-        /// <summary> Goes up the tree to the nearest IfRepliesNode </summary>
-        /// <exception>throws SomeException</exception>
-        IAskNode Fi();
     }
 }
