@@ -1,6 +1,6 @@
 namespace DialogicLogic
 {
-    public interface IAskNode
+    public interface IAskNode : IDialogueNode
     {
         IIfRepliesNode IfReplies(string message);
     }
