@@ -35,7 +35,7 @@ namespace DialogicLogic
         
         public IAskNode Fi()
         {
-            IDialogueNode curr = this;
+            IDialogueNode curr = this.Previous;
             while(curr != null && !curr.IsIAskNode()) curr = curr.Previous;
 
             return curr.IsIAskNode() ? curr.ToIAsk() : throw new InvalidOperationException();

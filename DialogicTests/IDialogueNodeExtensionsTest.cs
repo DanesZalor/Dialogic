@@ -39,7 +39,7 @@ public class IDialogueNodeExtensionsTest
         {
             Action act = () => new SayNode("amogus").ToIAsk();
 
-            var error = Assert.ThrowsAny<InvalidOperationException>(act);
+            var error = Assert.ThrowsAny<InvalidCastException>(act);
 
             Assert.Equal("Cannot cast SayNode to IAskNode",error.Message);
         }

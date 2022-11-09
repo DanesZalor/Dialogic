@@ -71,9 +71,8 @@ public class AskNodeTests
         }
 
         [Fact]
-        public void IfBranchTestsOnFi()
+        public void FiShouldMoveUpTheTree()
         {
-            Console.WriteLine(tree.Root.Next.Next.ToIAsk().Content);
             IDialogueNode thirdReplyNode = tree.Root.Next.Next.ToIAsk().GetNext("prefer not to say"); 
             Assert.Equal("damn im sorry", thirdReplyNode.Content);
         }
