@@ -8,7 +8,7 @@ namespace DialogicLogic
         {
             return (inode is IAskNode) 
                 ? (inode as IAskNode) 
-                : throw new InvalidCastException($"Cannot cast {inode.GetType()} to IAskNode");
+                : throw new InvalidCastException($"Cannot cast {inode.GetType().Name} to IAskNode");
         }
         
         public static bool IsIAskNode(this IDialogueNode inode)
