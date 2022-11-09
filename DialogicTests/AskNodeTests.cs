@@ -79,13 +79,13 @@ public class AskNodeTests
         [Fact]
         public void FiExceedingDelimiterThrowsException()
         {
-            // Action act = () => {
-            //     new SayNode("hello")
-            //         .Say("XD")
-            //         .Fi();
-            // };
+            Action act = () => {
+                new SayNode("hello")
+                    .Say("XD")
+                    .Fi();
+            };
 
-            // Assert.Throws<Exception>(act);
+            Assert.Throws<Exception>(act);
         }
     }
     

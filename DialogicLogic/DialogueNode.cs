@@ -35,11 +35,18 @@ namespace DialogicLogic
         
         public IAskNode Fi()
         {
-            IDialogueNode curr = this.Previous;
-            while(curr != null && !(curr is IAskNode)) 
-                curr = curr.Previous;
+            try
+            {
+                IDialogueNode curr = this.Previous;
+                while(curr != null && !(curr is IAskNode))  
+                    curr = curr.Previous;
 
-            return curr as IAskNode;
+                return curr.ToIAsk();
+            }
+            catch(InvalidCastException e)
+            {
+                throw e;
+            }
         }
     }
 }
