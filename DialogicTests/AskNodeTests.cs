@@ -72,8 +72,20 @@ public class AskNodeTests
         [Fact]
         public void IfBranchTestsOnFi()
         {
-            
-            Assert.True(true);
+            IDialogueNode thirdReplyNode = tree.Root.Next.Next.ToIAsk().GetNext("prefer not to say"); 
+            Assert.Equal("damn im sorry", thirdReplyNode.Content);
+        }
+
+        [Fact]
+        public void FiExceedingDelimiterThrowsException()
+        {
+            // Action act = () => {
+            //     new SayNode("hello")
+            //         .Say("XD")
+            //         .Fi();
+            // };
+
+            // Assert.Throws<Exception>(act);
         }
     }
     

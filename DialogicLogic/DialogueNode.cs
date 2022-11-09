@@ -32,5 +32,14 @@ namespace DialogicLogic
             _content = content;
             _previousNode = parent;
         }
+        
+        public IAskNode Fi()
+        {
+            IDialogueNode curr = this.Previous;
+            while(curr != null && !(curr is IAskNode)) 
+                curr = curr.Previous;
+
+            return curr as IAskNode;
+        }
     }
 }

@@ -1,6 +1,6 @@
 namespace DialogicLogic
 {
-    public interface ISayNode : IDialogueNode, IFiAble
+    public interface ISayNode : IDialogueNode
     {
         ISayNode Say(string message);
 

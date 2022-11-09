@@ -8,6 +8,8 @@ namespace DialogicLogic{
         IDialogueNode Next { get; }
 
         IDialogueNode Root { get; }
+
+        IAskNode Fi();
     }
 
 }
