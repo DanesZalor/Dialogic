@@ -1,3 +1,4 @@
+using System;
 using DialogicLogic;
 
 namespace DialogicTests;
@@ -38,7 +39,7 @@ public class IDialogueNodeExtensionsTest
         {
             Action act = () => new SayNode("amogus").ToIAsk();
 
-            var error = Assert.ThrowsAny<InvalidCastException>(act);
+            var error = Assert.ThrowsAny<InvalidOperationException>(act);
 
             Assert.Equal("Cannot cast SayNode to IAskNode",error.Message);
         }
