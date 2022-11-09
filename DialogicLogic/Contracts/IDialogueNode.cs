@@ -10,6 +10,8 @@ namespace DialogicLogic{
         IDialogueNode Root { get; }
 
         IAskNode Fi();
+
+        string ToString(int level);
     }
 
 }

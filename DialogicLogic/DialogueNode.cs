@@ -20,8 +20,6 @@ namespace DialogicLogic
             }
         }
 
-        
-
         public DialogueNode(string content, IDialogueNode parent = null)
         {
             if( string.IsNullOrWhiteSpace(content) )
@@ -29,7 +27,7 @@ namespace DialogicLogic
                 throw new ArgumentNullException("content should not be null or empty");
             }
 
-            _content = content;
+            _content = content.Trim();
             _previousNode = parent;
         }
         
@@ -40,5 +38,10 @@ namespace DialogicLogic
 
             return curr.IsIAskNode() ? curr.ToIAsk() : throw new InvalidOperationException();
         }
+
+        public abstract string ToString(int level);
+
+        public override string ToString() => ToString(0);
+        
     }
 }

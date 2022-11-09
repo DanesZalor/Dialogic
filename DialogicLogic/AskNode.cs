@@ -44,5 +44,17 @@ namespace DialogicLogic
             return new IfRepliesNode(reply, this, _children);           
         }
 
+        public override string ToString(int level)
+        {
+            string s = new string(' ', level) + $"{Content}\n";
+
+            foreach(var key in _children.Keys)
+            {
+                s += new string(' ', level+2) + $"if({key}):\n";
+                s += $"{_children[key].ToString( level + 4)}";
+            }
+
+            return s ;
+        }
     }
 }

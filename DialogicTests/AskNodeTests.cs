@@ -83,11 +83,23 @@ public class AskNodeTests
             Action act = () => {
                 new SayNode("hello")
                     .Say("XD")
+                    .Ask("are you a boy/girl?")
+                        .IfReplies("boy")
+                            .Ask("are you a sigma/alpha male?")
+                                .IfReplies("sigma male")
+                                    .Say("sigma male grindset")
+                                    .Fi()
+                                .IfReplies("alpha male")
+                                    .Say("oh really")
+                                    .Say("shut the fuck up")
+                                    .Fi()
+                        .Fi()
                     .Fi();
             };
 
             Assert.Throws<InvalidOperationException>(act);
         }
+        
     }
     
 }
