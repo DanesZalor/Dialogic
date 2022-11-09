@@ -1,7 +1,11 @@
 namespace DialogicLogic
 {
-    public interface IAskNode
+    public interface IAskNode : IDialogueNode
     {
-        IIfRepliesNode IfReplies(string message);
+        string ChoiceKey {get; set;}
+
+        IIfRepliesNode IfReplies(string reply);
+
+        IDialogueNode GetNext(string key);
     }
 }
