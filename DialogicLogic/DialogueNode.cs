@@ -38,10 +38,6 @@ namespace DialogicLogic
 
             return curr.IsIAskNode() ? curr.ToIAsk() : throw new InvalidOperationException();
         }
-
-        public abstract string ToString(int level);
-
-        public override string ToString() => ToString(0);
         
     }
 }

@@ -13,6 +13,8 @@ namespace DialogicLogic
         
         public static bool IsIAskNode(this IDialogueNode inode)
             => inode is IAskNode;
+
+        
     }
 }
 

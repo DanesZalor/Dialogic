@@ -22,11 +22,6 @@ namespace DialogicLogic
             return _next as IAskNode;
         }
 
-        public override string ToString(int level)
-        {
-            string s = new string(' ', level) + $"{Content}\n";
-            if(Next!=null) s += $"{Next.ToString(level)}";
-            return s;
-        }
+        
     }
 }

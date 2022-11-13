@@ -10,6 +10,9 @@ namespace DialogicLogic
 
         private string _choiceKey;
 
+
+        public IEnumerable<string> Choices => _children.Keys;
+        
         public string ChoiceKey 
         {
             get {
@@ -42,19 +45,6 @@ namespace DialogicLogic
             _children.Add(reply, null);
 
             return new IfRepliesNode(reply, this, _children);           
-        }
-
-        public override string ToString(int level)
-        {
-            string s = new string(' ', level) + $"{Content}\n";
-
-            foreach(var key in _children.Keys)
-            {
-                s += new string(' ', level+2) + $"if({key}):\n";
-                s += $"{_children[key].ToString( level + 4)}";
-            }
-
-            return s ;
         }
     }
 }
